@@ -53,7 +53,8 @@ const endGame = (appWidth, fontSize, textLineSpacing, endGameTitle, textStyle, s
   (async() => {
     sound.play();
     await sleep(10000);
-    location.href='/';
+    // location.href='/'; // For Local
+    location.href='/sonic_dunk/'; // For Github Pages
   })();
 }
 
