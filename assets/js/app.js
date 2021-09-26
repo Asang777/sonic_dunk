@@ -33,6 +33,12 @@ document.body.appendChild(app.view);
 const text = new Text();
 const sonic = new Sonic(appHeight);
 sonic.sprite = generateSprite(sonic, app);
+sonic.sprite.interactive = true;
+sonic.sprite.buttonMode = true;
+
+sonic.sprite.on('pointerdown', () => {
+  sonic.jump()
+})
 
 const traps = [];
 for (let i = 0; i < trapCount; i++) {
