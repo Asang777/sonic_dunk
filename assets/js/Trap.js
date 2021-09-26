@@ -1,8 +1,10 @@
 class Trap {
   constructor(trapIndex, appWidth, appHeight) {
     this.filePath = './assets/images/eggman.png';
-    this.x = 500 + (trapIndex * Math.random() * appWidth/2);
-    this.y = (trapIndex * 10 + Math.random() * appHeight/2);
+    // this.x = 500 + trapIndex * appWidth/10;
+    // this.y = (trapIndex * 10 + Math.random() * appHeight/55);
+    this.x = 700 + (trapIndex * 100) + (trapIndex * 100);
+    this.y = 100 + Math.random() * appHeight/2;
     this.widthRatio = 51.15;
     this.heightRatio = 45.16;
     this.size = 2;

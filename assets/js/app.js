@@ -9,13 +9,15 @@ let scoreText;
 
 // Level determine the traps amount
 const level = {
-  'easy': 100,
-  'medium': 200,
-  'hard': 500,
-  'export': 1000,
-  'sonic must die': 2000,
+  'easy': 10,
+  'medium': 30,
+  'hard': 60,
+  'expert': 70,
+  'sonic must die': 100,
 }
-const trapCount = level['sonic must die'];
+
+const trapCount = level[localStorage.getItem('level') ?? 'medium'];
+
 const ringCount = 300;
 
 const Application = PIXI.Application;
@@ -29,7 +31,7 @@ app.renderer.view.style.position = 'absolute';
 document.body.appendChild(app.view);
 
 const text = new Text();
-const sonic = new Sonic();
+const sonic = new Sonic(appHeight);
 sonic.sprite = generateSprite(sonic, app);
 
 const traps = [];
@@ -67,6 +69,10 @@ scoreText = generateText(`Score: ${Math.ceil(score)}`, text.style, 0, 0, app);
 const loop = (delta) => {
   sonic.accelerate();
   finishLine.accelerate();
+
+  if (sonic.sprite.y < 0) {
+    sonic.sprite.y = 0;
+  }
 
   rings.forEach((ring, id) => {
     ring.accelerate();

@@ -25,6 +25,16 @@
     "
   >
     <div class="flex flex-col items-center justify-center h-screen">
+      <div class="mb-5">
+        <select id="level" onChange="changeLevel(this.value)">
+          <option value="">Choose Difficulty Level</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+          <option value="expert">Expert</option>
+          <option value="sonic must die">Sonic Must Die</option>
+        </select>
+      </div>
       <div
         class="
           bg-indigo-800
@@ -59,6 +69,13 @@
         loop: true,
       });
       menuMusic.play();
+
+      let selectLevel = document.getElementById('level');
+      selectLevel.value = localStorage.getItem('level') ?? '';
+
+      const changeLevel = (value) => {
+        localStorage.setItem('level', value);
+      };
     </script>
   </body>
 </html>

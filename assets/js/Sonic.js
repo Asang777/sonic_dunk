@@ -22,6 +22,8 @@ class Sonic {
   }
 
   jump() {
-    this.sprite.y -= this.jumpPower;
+    if (this.sprite.y > 0) {
+      this.sprite.y -= this.jumpPower;
+    }
   }
 }
