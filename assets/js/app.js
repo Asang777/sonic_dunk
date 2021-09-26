@@ -64,6 +64,10 @@ document.addEventListener('click', () => {
   sonic.jump();
 });
 
+document.addEventListener('touchstart', () => {
+  sonic.jump();
+});
+
 document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowUp') {
     sonic.jump();
