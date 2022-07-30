@@ -49,6 +49,7 @@ const endGame = (appWidth, fontSize, textLineSpacing, endGameTitle, textStyle, s
   app.stage.removeChild(scoreText);
   app.ticker.stop();
   themeSong.stop();
+  song.stop();
 
   (async() => {
     sound.play();
